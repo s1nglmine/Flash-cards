@@ -3,11 +3,11 @@ body {
     background: #f9fafb;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+    /* display: flex; */
+    /* justify-content: flex-start; */
+    /* align-items: flex-start; */
     height: 100vh;
-    overflow-x: hidden; /* prevent horizontal scroll */
+    /* overflow-x: hidden; prevent horizontal scroll */
   }
   
   .container {
@@ -21,7 +21,7 @@ body {
     gap: 16px;
     margin-left: 0;
     flex-wrap: nowrap;
-    overflow-x: auto;
+    /* overflow-x: auto; */
     box-sizing: border-box;
   }
   
@@ -73,6 +73,10 @@ body {
     margin-top: 25px;
   }
   
+  #deleteButton{
+    background-color: red;
+  }
+
   button:hover,
   button:focus {
     background-color: #005a9e;
@@ -80,25 +84,115 @@ body {
     outline: none;
   }
   
-  @media (max-width: 480px) {
+  .buttons{
+    background: white;
+    border-radius: 8px;
+    padding: 20px 24px;
+    width: 100vw;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-left: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    box-sizing: border-box;
+    margin-top: -25px;
+    
+  }
+
+  .card {
+    border: 1px solid #219FFF;
+    background-color: #ffffff; 
+    margin: 10px 20px;
+    padding: 20px 30px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    width: 100%; 
+    max-width: 300px; 
+    /* height: 100%; */
+    /* max-height: 300px; */
+    border-radius: 10px;
+    box-sizing: border-box; 
+    cursor: pointer;
+  }
+
+  .card:hover{
+    border: 1px solid #219FFF;
+    box-shadow: 3px 5px 10px 1px rgba(0, 0, 0, 0.39);
+  }
+  
+  .card.active{
+    background-color: #219FFF;
+    transform: rotateX(90);
+  }
+
+  label.back {
+    color: rgb(255, 255, 255); 
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem; 
+  }
+  label.front {
+    color: #000; 
+    font-family: Arial, sans-serif;
+    font-size: 1.5rem; 
+  }
+
+  label.back.hide {
+    display: none;
+  }
+  label.front.hide {
+    display: none;
+  }
+
+  .cards{
+    width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  @media (max-width: 768px) {
     body {
-      height: auto;
-      padding: 8px 0;
+        padding: 10px;
     }
     .container {
-      padding: 12px 16px;
-      gap: 12px;
-      overflow-x: auto;
+        flex-direction: column; 
+        width: auto; 
+        padding: 10px; 
     }
     .input-group {
-      min-width: 120px;
+        min-width: 100%;
     }
     input[type="text"] {
-      width: 120px;
-      font-size: 14px;
+        width: 100%; 
     }
     button {
-      padding: 10px 20px;
-      font-size: 14px;
+      width: 80%; 
+      margin-top: 10px;
     }
+    #againButton {
+      margin-left: -14px; 
+      order: 1; 
+      width: 80%; 
+    }
+    .buttons {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-left: 0;
+      flex-wrap: wrap; 
+      overflow-x: auto;
+      box-sizing: border-box;
+      margin-top: -25px;
+    }
+    #removeButton {
+      width: 120vw;
+
+      order: 1; 
+      flex-basis: 100%;
+      width: 100%; 
+
+    }
+  
   }
