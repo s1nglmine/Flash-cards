@@ -32,6 +32,8 @@ buttonRemove.addEventListener('click', function (){
 addCard.addEventListener('click', function () {
     let textInput = document.getElementById("textInput").value
     let transInput = document.getElementById("translationInput").value
+    document.getElementById("textInput").value = ""
+    document.getElementById("translationInput").value = ""
     if (textInput.length == 0 || transInput.length == 0){
         alert("Заполните все поля.")
         return
