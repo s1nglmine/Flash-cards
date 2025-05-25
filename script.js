@@ -2,15 +2,32 @@ let buttonRemove = document.getElementById("deleteButton")
 let addCard = document.getElementById("addButton")
 let returnCard = document.getElementById("againButton")
 let editCard = document.getElementById("editButton")
-let viewCard = document.getElementById("viewButton")
 let deleteCard = document.getElementById("deleteButtonCard")
 
 let currentTool = "view"
 let counter = 0
 
-editCard.addEventListener('click', function() {currentTool = "edit"})
-viewCard.addEventListener('click', function() {currentTool = "view"})
-deleteCard.addEventListener('click', function() {currentTool = "delete"})
+editCard.addEventListener('click', function() {
+    if (currentTool != "edit"){
+        currentTool = "edit"
+        editCard.style.backgroundColor = "#005a9e"
+        deleteCard.style.backgroundColor = "red"
+    } else {
+        currentTool = "view"
+        editCard.style.backgroundColor = "#219FFF"
+    }
+})
+deleteCard.addEventListener('click', function() {
+    if (currentTool != "delete"){
+        currentTool = "delete"
+        editCard.style.backgroundColor = "#219FFF"
+        deleteCard.style.backgroundColor = "darkred"
+    } else {
+        currentTool = "view"
+        deleteCard.style.backgroundColor = "red"
+    }
+
+})
 
 returnCard.addEventListener('click', function() {
     document.querySelectorAll(".card").forEach(card => {
@@ -63,8 +80,17 @@ addCard.addEventListener('click', function () {
             } else if(currentTool == "edit"){
                 const front = card.querySelector('.front');
                 const back = card.querySelector('.back');
-                front.innerHTML = prompt("Введите текст")
-                back.innerHTML = prompt("Введите перевод")
+                const text = prompt("Введите текст")
+                const translate = prompt("Введите перевод")
+                if (text == "" || translate.length == ""){
+                    alert("Заполните все поля.")
+                    return;
+                }
+                front.innerHTML = text
+                back.innerHTML = translate
+                currentTool = "view"
+                editCard.style.backgroundColor = "#219FFF"
+            
             } else if (currentTool == "delete"){
                 card.remove()
             }
