@@ -92,6 +92,8 @@ addCard.addEventListener('click', function () {
                 editCard.style.backgroundColor = "#219FFF"
             
             } else if (currentTool == "delete"){
+                currentTool = "view"
+                deleteCard.style.backgroundColor = "red"
                 card.remove()
             }
         });
