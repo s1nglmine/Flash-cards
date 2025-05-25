@@ -183,7 +183,6 @@ body {
       margin-top: 10px;
     }
     #againButton {
-      margin-left: -14px; 
       order: 1; 
       width: 80%; 
     }
@@ -200,11 +199,15 @@ body {
     }
     #removeButton {
       width: 120vw;
-
       order: 1; 
       flex-basis: 100%;
       width: 100%; 
 
     }
   
+    button {
+      width: 80%;
+      margin-top: 10px;
+      margin-inline: auto;
+  }
   }
